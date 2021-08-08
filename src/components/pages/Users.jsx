@@ -1,7 +1,9 @@
+import { useContext } from "react";
 import styled from "styled-components";
 import { SearchInput } from "../../molecules/Searchinput";
+import { UserContext } from "../../providers/UserProvider";
+import { SecondaryBotton } from "../atoms/button/SecondaryBotton";
 import { UserCard } from "../organisms/user/UserCard";
-import { useLocation } from "react-router-dom";
 
 //テストデータ配列作成
 const users = [...Array(10).keys()].map((val) => {
@@ -19,11 +21,17 @@ const users = [...Array(10).keys()].map((val) => {
 });
 
 export const Users = () => {
-  const { state } = useLocation();
+  const { userInfo, setUserInfo } = useContext(UserContext);
+  const onClickSwitch = () => {
+    console.log("switch");
+    setUserInfo({ isAdmin: !userInfo.isAdmin });
+  };
   return (
     <Scontainar>
       <h2>ユーザーズ</h2>
       <SearchInput />
+      <br />
+      <SecondaryBotton onclick={onClickSwitch}>切り替え</SecondaryBotton>
       <SUserArea>
         {users.map((user) => (
           <UserCard key={user.id} user={user} />
