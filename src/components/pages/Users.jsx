@@ -23,7 +23,6 @@ const users = [...Array(10).keys()].map((val) => {
 export const Users = () => {
   const { userInfo, setUserInfo } = useContext(UserContext);
   const onClickSwitch = () => {
-    console.log("switch");
     setUserInfo({ isAdmin: !userInfo.isAdmin });
   };
   return (
@@ -31,7 +30,7 @@ export const Users = () => {
       <h2>ユーザーズ</h2>
       <SearchInput />
       <br />
-      <SecondaryBotton onclick={onClickSwitch}>切り替え</SecondaryBotton>
+      <SecondaryBotton onClick={onClickSwitch}>切り替え</SecondaryBotton>
       <SUserArea>
         {users.map((user) => (
           <UserCard key={user.id} user={user} />

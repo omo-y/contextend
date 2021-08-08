@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Card = (props) => {
-  console.log(props);
   const { children } = props;
   return <SCard>{children}</SCard>;
 };
