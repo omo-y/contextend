@@ -2,6 +2,7 @@ import { useContext } from "react";
 import styled from "styled-components";
 import { UserContext } from "../providers/UserProvider";
 export const UsericonWithinName = (props) => {
+  console.log("UserIconWithinName");
   const { image, name } = props;
   const { userInfo } = useContext(UserContext);
   const isAdmin = userInfo ? userInfo.isAdmin : false;
